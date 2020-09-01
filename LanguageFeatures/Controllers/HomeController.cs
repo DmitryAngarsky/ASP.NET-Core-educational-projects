@@ -8,17 +8,17 @@ namespace LanguageFeatures.Controllers
     {
         public ViewResult Index()
         {
-            List<string> results = new List<string>();
+            Product[] productArray = {
 
-            foreach(Product p in Product.GetProducts()){
-                
-                string name = p?.Name ?? "<No name>";
-                decimal? price = p?.Price ?? 0;
-                string releatedName = p?.Releated?.Name ?? "<None>";
-                results.Add(string.Format("Name: {0} Price: {1} Releated: {2}", name, price, releatedName));
-            }
+                new Product { Name = "Kayak", Price = 275M },
+                new Product { Name = "Lifejacket", Price = 48.95M },
+                new Product { Name = "Soccer ball", Price = 19.50M },
+                new Product { Name = "Corner flag", Price = 34.95M }
+            };
 
-            return View(results);
+            decimal arrayTotal = productArray.FilterByPrice(20).TotalPrice();
+
+            return View("Index", new string[] { $"Array Total: {arrayTotal:C2}" });
         }
     }
 }
