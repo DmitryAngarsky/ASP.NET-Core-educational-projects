@@ -1,11 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using LanguageFeatures.Models;
+using System.Threading.Tasks;
 
 namespace LanguageFeatures.Controllers
 {
     public class HomeController : Controller
     {
-        public ViewResult Index => View(Product.GetProducts().Select(p => p?.Name));
+        public async Task<ViewResult> Index()
+        {
+            long? length = await MyAsyncMethods.GetPageLength();
+            return View(new string[] { $"Length: {length}" });
+        }
     }
 }

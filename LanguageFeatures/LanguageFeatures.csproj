@@ -9,5 +9,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="Views\" />
     <Folder Include="Views\Home\" />
+    <PackageReference Include="System.Net.Http" Version="4.3.2" />
   </ItemGroup>
 </Project>
