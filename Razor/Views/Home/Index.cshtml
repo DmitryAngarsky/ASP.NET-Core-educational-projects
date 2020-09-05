@@ -1,9 +1,22 @@
-﻿@using Razor.Models
-@model Product
+﻿@using Razor.Models;
+@model Product[]
 
 @{
-    Layout = "_BasicLayout";
-    ViewBag.Title = "ProductName";
+    Layout= "_BasicLayout";
+    ViewBag.Title = "Product Name";
 }
 
-Product Name: @Model.Name
+<table>
+    <thead>
+        <tr><th>Name</th><th>Price</th></tr>
+    </thead>
+    <tbody>
+        @foreach (Product p in Model)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@($"{p.Price:C2}")</td>
+            </tr>
+        }
+    </tbody>
+</table>

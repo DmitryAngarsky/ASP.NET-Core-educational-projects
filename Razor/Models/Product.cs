@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 namespace Razor.Models
 {
     public class Product
