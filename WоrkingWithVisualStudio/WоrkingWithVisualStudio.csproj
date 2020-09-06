@@ -218,4 +218,10 @@
     <None Include="wwwroot\lib\twitter-bootstrap\scss\utilities\_visibility.scss" />
     <None Include="wwwroot\lib\twitter-bootstrap\scss\vendor\_rfs.scss" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
 </Project>
