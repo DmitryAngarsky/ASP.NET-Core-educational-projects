@@ -1,8 +1,9 @@
 ﻿@using Razor.Models;
+@using System.Globalization;
+
 @model Product[]
 
 @{
-    Layout= "_BasicLayout";
     ViewBag.Title = "Product Name";
 }
 
@@ -15,7 +16,7 @@
         {
             <tr>
                 <td>@p.Name</td>
-                <td>@($"{p.Price:C2}")</td>
+                <td>@p.Price.ToString("C2", CultureInfo.GetCultureInfo("en-GB"))</td>
             </tr>
         }
     </tbody>
