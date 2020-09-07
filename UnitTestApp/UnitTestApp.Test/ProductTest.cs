@@ -1,7 +1,7 @@
 using UnitTestApp.Models;
 using Xunit;
 
-namespace SimpleApp.Tests
+namespace UnitTestApp.Tests
 {
 
     public class ProductTests
@@ -9,14 +9,16 @@ namespace SimpleApp.Tests
         [Fact]
         public void CanChangeProductName()
         {
-
+            // Организация
             // Arrange
             var p = new Product { Name = "Test", Price = 100M };
 
+            // Действие
             // Act
             p.Name = "New Name";
 
-            //Assert
+            // Утверждение
+            // Assert
             Assert.Equal("New Name", p.Name);
         }
 
@@ -28,7 +30,7 @@ namespace SimpleApp.Tests
             var p = new Product { Name = "Test", Price = 100M };
 
             // Act
-            p.Price = 150M;
+            p.Price = 200M;
 
             //Assert
             Assert.Equal(200M, p.Price);
