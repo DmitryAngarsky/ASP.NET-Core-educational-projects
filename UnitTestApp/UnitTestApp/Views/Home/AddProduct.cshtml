@@ -1,0 +1,32 @@
+﻿@using UnitTestApp.Models
+@model Product
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UnitTestApp</title>
+    <link rel="stylesheet" href="/lib/twitter-bootstrap/css/bootstrap.css" />
+</head>
+<body class="p-2">
+    <hЗ class="text-center">Create Product</hЗ>
+    <form asp-action="AddProduct" method="post">
+        <div class="form-group">
+            <label asp-for="Name">Name:</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Price">Price:</label>
+            <input asp-for="Price" class="form-control" />
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Add</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</body>
+</html>

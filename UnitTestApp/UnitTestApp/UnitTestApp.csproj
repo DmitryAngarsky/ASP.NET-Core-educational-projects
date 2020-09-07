@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Home\" />
+    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\_carousel.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\_close.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\_code.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\_custom-forms.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\_dropdown.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\_forms.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\_functions.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\_grid.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\_images.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\_input-group.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\utilities\_float.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\utilities\_interactions.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\utilities\_overflow.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\utilities\_position.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\utilities\_screenreaders.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\utilities\_shadows.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\utilities\_sizing.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\utilities\_spacing.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\utilities\_stretched-link.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\utilities\_text.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\utilities\_visibility.scss" />
+    <Content Remove="wwwroot\lib\twitter-bootstrap\scss\vendor\_rfs.scss" />
+  </ItemGroup>
+</Project>
