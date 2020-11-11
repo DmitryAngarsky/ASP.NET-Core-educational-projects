@@ -7,9 +7,14 @@ namespace Platform
     {
         private readonly RequestDelegate _next;
 
-        public QueryStringMiddleware(RequestDelegate next)
+        public QueryStringMiddleware()
         {
-            _next = next;
+            
+        }
+        
+        public QueryStringMiddleware(RequestDelegate nextDelegate) 
+        { 
+            _next = nextDelegate;
         }
 
         public async Task Invoke(HttpContext context)
@@ -20,7 +25,10 @@ namespace Platform
                 await context.Response.WriteAsync("Class-Based Middleware\n");
             }
 
-            await _next(context);
+            if (_next != null)
+            {
+                await _next(context);
+            }
         }
     }
 }
