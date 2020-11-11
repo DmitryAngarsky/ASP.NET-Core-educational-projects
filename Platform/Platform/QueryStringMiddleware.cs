@@ -17,7 +17,7 @@ namespace Platform
             if (context.Request.Method == HttpMethods.Get 
                 && context.Request.Query["custom"] == "true")
             {
-                await context.Response.WriteAsync("Class-Based Middleware");
+                await context.Response.WriteAsync("Class-Based Middleware\n");
             }
 
             await _next(context);
