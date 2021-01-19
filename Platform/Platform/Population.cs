@@ -20,10 +20,12 @@ namespace Platform
 
         public async Task Invoke(HttpContext context)
         {
-            string[] parts = context.Request.Path.ToString().Split("/", StringSplitOptions.RemoveEmptyEntries);
-            if (parts.Length == 2 && parts[1] == "population")
+            string[] parts = context.Request.Path.ToString()
+                .Split("/", StringSplitOptions.RemoveEmptyEntries);
+            
+            if (parts.Length == 2 && parts[0] == "population")
             {
-                string city = parts[0];
+                string city = parts[1];
 
                 int? pop = city.ToLower() switch
                 {
@@ -34,7 +36,11 @@ namespace Platform
                 };
 
                 if (pop.HasValue)
-                    await context.Response.WriteAsync($"City: {city}, Population: {pop}");
+                {
+                    await context.Response
+                        .WriteAsync($"City: {city}, Population: {pop}");
+                    return;
+                }
             }
 
             if (_next != null)
