@@ -6,45 +6,27 @@ namespace Platform
 {
     public class Population
     {
-        private readonly RequestDelegate _next;
-
-        public Population()
+        public static async Task Endpoint(HttpContext context)
         {
-            
-        }
+            string city = context.Request.RouteValues["city"] as string;
 
-        public Population(RequestDelegate next)
-        {
-            _next = next;
-        }
-
-        public async Task Invoke(HttpContext context)
-        {
-            string[] parts = context.Request.Path.ToString()
-                .Split("/", StringSplitOptions.RemoveEmptyEntries);
-            
-            if (parts.Length == 2 && parts[0] == "population")
+            int? pop = city?.ToLower() switch
             {
-                string city = parts[1];
+                "london" => 8_136_000,
+                "paris" => 2_141_000,
+                "monaco" => 39_000,
+                _ => null
+            };
 
-                int? pop = city.ToLower() switch
-                {
-                    "london" => 8_136_000,
-                    "paris" => 2_141_000,
-                    "monaco" => 39_000,
-                    _ => null
-                };
-
-                if (pop.HasValue)
-                {
-                    await context.Response
-                        .WriteAsync($"City: {city}, Population: {pop}");
-                    return;
-                }
+            if (pop.HasValue)
+            {
+                await context.Response
+                    .WriteAsync($"City: {city}, Population: {pop}");
             }
-
-            if (_next != null)
-                await _next(context);
+            else
+            {
+                context.Response.StatusCode = StatusCodes.Status404NotFound;
+            }
         }
     }
 }

@@ -17,10 +17,7 @@ namespace Platform
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<MessageOptions>(options =>
-            {
-                options.CityName = "Albany";
-            });
+            services.Configure<MessageOptions>(options => { options.CityName = "Albany"; });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,14 +36,15 @@ namespace Platform
                         await context.Response
                             .WriteAsync($"{kvp.Key}: {kvp.Value}\n");
                 });
-
-                endpoint.MapGet("population/paris", new Population().Invoke);
-                endpoint.MapGet("capital/uk", new Capital().Invoke);
+                
+                endpoint.MapGet("capital/{country}", Capital.Endpoint);
+                endpoint.MapGet("population/{city}", Population.Endpoint);
             });
-            
+
             app.Use(async (context, next) =>
             {
-                await context.Response.WriteAsync("Terminal Middleware Reached");
+                await context.Response
+                    .WriteAsync("Terminal Middleware Reached");
             });
         }
     }

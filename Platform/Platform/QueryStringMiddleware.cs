@@ -9,17 +9,16 @@ namespace Platform
 
         public QueryStringMiddleware()
         {
-            
         }
-        
-        public QueryStringMiddleware(RequestDelegate nextDelegate) 
-        { 
+
+        public QueryStringMiddleware(RequestDelegate nextDelegate)
+        {
             _next = nextDelegate;
         }
 
         public async Task Invoke(HttpContext context)
         {
-            if (context.Request.Method == HttpMethods.Get 
+            if (context.Request.Method == HttpMethods.Get
                 && context.Request.Query["custom"] == "true")
             {
                 await context.Response.WriteAsync("Class-Based Middleware\n");
